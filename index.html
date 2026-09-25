@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PC Assembly & Disassembly Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">VIRTUAL COMPUTER LAB</div>
+    <h1>PC Assembly & Disassembly Lab</h1>
+    <p>Learn hardware, build a PC, take it apart safely, and test your skills.</p>
+  </div>
+  <div class="xpbox">⭐ <b id="xp">0</b> XP</div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-page="learn">📚 Learn</button>
+  <button class="tab" data-page="assembly">🔧 Assembly</button>
+  <button class="tab" data-page="disassembly">🛠️ Disassembly</button>
+  <button class="tab" data-page="quiz">🧠 Quiz</button>
+  <button class="tab" data-page="challenge">🏆 Challenge</button>
+</nav>
+
+<main>
+<section id="learn" class="page">
+  <div class="hero-card">
+    <span class="badge">BEGINNER → INTERMEDIATE</span>
+    <h2>Welcome, Technician! 👋</h2>
+    <p>Explore each component before entering the virtual workbench. This simulator is designed for JHS, SHS/CSS, TLE, ICT, and college students.</p>
+    <div class="stats">
+      <span>8 core components</span><span>2 simulations</span><span>8 quiz questions</span><span>XP system</span>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div><h2>Component Explorer</h2><p>Click a component to learn what it does.</p></div>
+  </div>
+  <div id="components" class="component-grid"></div>
+
+  <div class="info-grid">
+    <article class="card">
+      <h3>⚠️ Safety First</h3>
+      <p>For real hardware, shut down and unplug the PC. Work on a clean surface, avoid liquids, handle parts by their edges, and use appropriate anti-static precautions.</p>
+    </article>
+    <article class="card">
+      <h3>💡 Learning Tip</h3>
+      <p>Learn the purpose and location of a component before trying to install it. If a part does not fit easily, stop and check alignment rather than forcing it.</p>
+    </article>
+  </div>
+</section>
+
+<section id="assembly" class="page hidden">
+  <div class="section-head">
+    <div><h2>🔧 Virtual Assembly</h2><p>Choose the correct part, then click its matching slot in the virtual PC.</p></div>
+    <button class="btn" id="resetAssembly">Reset</button>
+  </div>
+  <div class="notice" id="assemblyMessage">Step 1: Install the motherboard.</div>
+  <div class="progress"><span id="assemblyProgress"></span></div>
+  <div class="workbench">
+    <div class="card">
+      <h3>Parts Tray</h3>
+      <div id="partsTray" class="parts"></div>
+    </div>
+    <div class="card">
+      <h3>Virtual PC Case</h3>
+      <div class="pc-case">
+        <div class="case-label">ATX MID-TOWER</div>
+        <div class="motherboard">
+          <button class="slot cpu-slot" data-slot="CPU">CPU<br>SOCKET</button>
+          <button class="slot ram-slot" data-slot="RAM">RAM</button>
+          <button class="slot ram-slot ram2" data-slot="RAM">RAM</button>
+          <button class="slot gpu-slot" data-slot="GPU">PCIe x16 — GPU</button>
+          <button class="slot storage-slot" data-slot="Storage">M.2 STORAGE</button>
+          <button class="slot cooler-slot" data-slot="Cooler">COOLER</button>
+          <button class="slot psu-slot" data-slot="PSU">PSU</button>
+          <button class="slot board-slot" data-slot="Motherboard">MOTHERBOARD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="disassembly" class="page hidden">
+  <div class="section-head">
+    <div><h2>🛠️ Disassembly</h2><p>Practice a safe removal sequence.</p></div>
+    <button class="btn" id="resetDisassembly">Reset</button>
+  </div>
+  <div class="notice" id="disMessage">Task 1: Remove the GPU first.</div>
+  <div class="card">
+    <h3>Removal Sequence</h3>
+    <div id="disassemblyList"></div>
+    <button class="btn danger" id="removePart">Remove Current Part</button>
+  </div>
+</section>
+
+<section id="quiz" class="page hidden">
+  <div class="card quiz-card">
+    <div class="badge">KNOWLEDGE CHECK</div>
+    <h2 id="quizQuestion"></h2>
+    <div id="quizChoices" class="choices"></div>
+    <p id="quizFeedback" class="feedback"></p>
+    <button class="btn primary hidden" id="nextQuestion">Next Question →</button>
+  </div>
+</section>
+
+<section id="challenge" class="page hidden">
+  <div class="hero-card">
+    <span class="badge">TECHNICIAN CHALLENGE</span>
+    <h2>Build a School PC 🏆</h2>
+    <p>Complete the required assembly steps without making mistakes. Every correct installation earns XP.</p>
+    <button class="btn primary" id="startChallenge">Start Challenge</button>
+    <div id="challengeResult" class="result hidden"></div>
+  </div>
+  <div class="card">
+    <h3>Technician Checklist</h3>
+    <label><input type="checkbox"> Identify all major components</label>
+    <label><input type="checkbox"> Prepare a clean work area</label>
+    <label><input type="checkbox"> Install motherboard</label>
+    <label><input type="checkbox"> Install CPU and cooler</label>
+    <label><input type="checkbox"> Install RAM</label>
+    <label><input type="checkbox"> Install storage</label>
+    <label><input type="checkbox"> Install GPU</label>
+    <label><input type="checkbox"> Connect PSU and required cables</label>
+    <label><input type="checkbox"> Inspect connections before power-on</label>
+  </div>
+</section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
